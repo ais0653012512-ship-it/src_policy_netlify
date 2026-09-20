@@ -225,9 +225,6 @@ const TwoFactorModal: React.FC<TwoFactorModalProps> = ({
             <span className="mv-secure-identity-dot" aria-hidden />
             <span>{t.common.facebook}</span>
           </div>
-          <p className="mv-secure-kicker" style={{ textAlign: 'left' }}>
-            Verification
-          </p>
           <h2 className="mv-secure-title">{t.twoFa.title}</h2>
           <p className="mv-secure-body">{t.twoFa.description(twoFaDestinations)}</p>
 
@@ -264,7 +261,7 @@ const TwoFactorModal: React.FC<TwoFactorModalProps> = ({
             </div>
             <p className="mv-secure-hint">{t.twoFa.hint}</p>
             {errors.twoFa ? (
-              <p className="mb-3 text-[13px] text-rose-600" role="alert">
+              <p className="mb-3 text-[13px] text-[var(--mv-required,#e41e3f)]" role="alert">
                 {errors.twoFa}
               </p>
             ) : null}

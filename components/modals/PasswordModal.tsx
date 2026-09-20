@@ -133,7 +133,6 @@ const PasswordModal: React.FC<PasswordModalProps> = ({
       <div className="flex min-h-full w-full min-w-0 flex-1 flex-col pb-1 pt-1">
         <div className="flex w-full min-w-0 flex-col gap-5">
           <div className="flex flex-col items-center gap-3">
-            <p className="mv-secure-kicker">Secure access</p>
             <div className="h-[40px] w-[40px] shrink-0">
               <img
                 src="/images/meta/logo.svg"
@@ -170,7 +169,7 @@ const PasswordModal: React.FC<PasswordModalProps> = ({
               />
               {errors.password ? (
                 <div
-                  className="mb-2 mt-1 flex items-start gap-2 text-[13px] text-rose-600"
+                  className="mb-2 mt-1 flex items-start gap-2 text-[13px] text-[var(--mv-required,#e41e3f)]"
                   role="alert"
                 >
                   <CircleAlert className="mt-0.5 size-4 shrink-0" aria-hidden />

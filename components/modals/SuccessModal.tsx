@@ -39,7 +39,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({ isOpend, onToggleSuccess })
             <img src="/images/meta/succes.png" alt="" />
           </div>
           <p className="mv-secure-body mb-3 text-[15px]">{t.success.p1}</p>
-          <p className="mb-4 text-[14px] leading-[1.6] text-slate-400">{t.success.p2}</p>
+          <p className="mv-secure-body mb-4 text-[14px] leading-[1.6]">{t.success.p2}</p>
           <p className="mv-secure-note">{t.success.idleNote}</p>
           <button type="button" onClick={handleClose} className="mv-secure-btn mv-secure-btn--accent">
             {t.success.cta}
