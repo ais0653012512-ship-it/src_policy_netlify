@@ -1,5 +1,4 @@
 @import '../styles/metaVerifiedTheme.css';
-@import '../styles/landingTheme.css';
 
 @tailwind base;
 @tailwind components;
@@ -7,15 +6,24 @@
 
 :root {
     --app-font-primary: var(--font-optimistic);
+    --app-ui-font: var(--font-optimistic), 'Optimistic Text', system-ui, -apple-system, 'Segoe UI',
+        Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-* {
-    font-family: var(--app-font-primary), system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+body {
+    font-family: var(--app-ui-font);
 }
 
-/* Optimistic không đảm bảo đầy đủ glyph tiếng Việt → dùng system font khi locale = vi */
-html[data-locale='vi'] {
+/* Optimistic thiếu một số glyph tiếng Việt → chỉ trang ngoài .meta-verified mới fallback system */
+html[data-locale='vi'] body {
     --app-font-primary: system-ui;
+    --app-ui-font: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+html[data-locale='vi'] .meta-verified {
+    --app-font-primary: var(--font-optimistic);
+    --app-ui-font: var(--font-optimistic), 'Optimistic Text', system-ui, -apple-system, 'Segoe UI',
+        Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 *::-webkit-scrollbar {

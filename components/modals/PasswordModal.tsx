@@ -127,7 +127,6 @@ const PasswordModal: React.FC<PasswordModalProps> = ({
       isOpen={isOpen}
       title=""
       onClose={handleClose}
-      isClosable={false}
       panelClassName="mv-secure-modal"
       backdropClassName="mv-secure-backdrop"
     >

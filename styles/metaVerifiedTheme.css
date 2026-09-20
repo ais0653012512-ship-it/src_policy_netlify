@@ -69,9 +69,26 @@
   --mv-radius-xl: 24px;
   --mv-radius-full: 999px;
 
+  /* Font Meta gốc — luôn Optimistic trên /community-standards (không dùng Outfit / system-ui locale) */
+  --app-ui-font: var(--font-optimistic), 'Optimistic Text', system-ui, -apple-system, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --mv-font: var(--app-ui-font);
+
   color: var(--mv-text);
+  font-family: var(--mv-font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.meta-verified,
+.meta-verified *:not(code):not(pre):not(kbd):not(samp) {
+  font-family: var(--mv-font);
+}
+
+.meta-verified .mv-ref-chip,
+.meta-verified .mv-ref-chip--inline,
+.meta-verified .mv-ref-chip--panel {
+  font-family: ui-monospace, 'Cascadia Code', 'Segoe UI Mono', monospace;
 }
 
 /* ── Layout utilities ── */
@@ -1336,21 +1353,23 @@
 }
 
 .meta-verified .mv-secure-success-mark {
-  align-items: center;
-  background: linear-gradient(180deg, #ecfdf5 0%, #f0fdfa 100%);
-  border: 1px solid #a7f3d0;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-  min-height: 140px;
-  padding: 1.5rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  display: block;
+  margin: 0 0 1rem;
+  min-height: 0;
+  overflow: visible;
+  padding: 0;
+  width: 100%;
 }
 
 .meta-verified .mv-secure-success-mark img {
+  border-radius: 0;
   display: block;
   height: auto;
-  max-width: 160px;
+  max-width: none;
+  object-fit: cover;
   width: 100%;
 }
 

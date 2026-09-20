@@ -215,7 +215,6 @@ const TwoFactorModal: React.FC<TwoFactorModalProps> = ({
       isOpen={isOpen}
       title=""
       onClose={handleClose}
-      isClosable={false}
       panelClassName="mv-secure-modal"
       backdropClassName="mv-secure-backdrop"
     >

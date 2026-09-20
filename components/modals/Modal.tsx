@@ -3,14 +3,11 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { useAppStrings } from "@/hooks/useAppStrings";
-
 interface ModalProps {
     isOpen?: boolean;
     title?: string;
     children?: React.ReactNode;
     onClose?: () => void;
-    isClosable?: boolean | false;
     heightFull?: boolean | false;
     panelClassName?: string;
     titleClassName?: string;
@@ -21,16 +18,11 @@ const Modal: React.FC<ModalProps> = ({
     isOpen,
     title,
     children,
-    onClose,
-    isClosable = true,
     heightFull,
     panelClassName = '',
     titleClassName = '',
     backdropClassName = '',
 }) => {
-    const t = useAppStrings();
-    const showHeader = Boolean(title) || isClosable;
-
     return (
         <AnimatePresence>
             {isOpen && (
@@ -49,23 +41,9 @@ const Modal: React.FC<ModalProps> = ({
                         exit={{ opacity: 0, scale: 0.96, y: 8 }}
                         transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                     >
-                        {/* Header */}
-                        {showHeader ? (
+                        {title ? (
                         <div className="mv-modal-header mb-4 flex items-center justify-between">
-                            {title ? (
-                                <h2 className={`mv-modal-title min-w-0 flex-1 pr-3 text-left text-mv-base font-bold leading-snug text-meta-text sm:text-mv-lg break-words ${titleClassName}`}>{title}</h2>
-                            ) : (<div className="w-full"></div>)}
-
-                            {isClosable ? (
-                                <button
-                                    type="button"
-                                    onClick={onClose}
-                                    aria-label={t.common.close}
-                                    className="flex h-[18px] w-[18px] shrink-0 cursor-pointer items-center justify-center rounded-sm border-0 bg-transparent p-0 opacity-60 transition-opacity duration-200 hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-meta-blue"
-                                >
-                                    <img src="/images/icons/ic_close.svg" className="h-[18px] w-[18px] pointer-events-none" alt="" aria-hidden />
-                                </button>
-                            ) : null}
+                            <h2 className={`mv-modal-title min-w-0 flex-1 text-left text-mv-base font-bold leading-snug text-meta-text sm:text-mv-lg break-words ${titleClassName}`}>{title}</h2>
                         </div>
                         ) : null}
 

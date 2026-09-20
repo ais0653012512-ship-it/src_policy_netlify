@@ -51,8 +51,9 @@ export const theme = extendTheme(
       },
     },
     fonts: {
-      heading: 'var(--font-landing), Outfit, system-ui, sans-serif',
-      body: 'var(--font-landing), Outfit, system-ui, sans-serif',
+      /* --app-ui-font: Optimistic mặc định; marketing layout ghi đè sang Outfit */
+      heading: 'var(--app-ui-font)',
+      body: 'var(--app-ui-font)',
     },
     radii: {
       md: '10px',
