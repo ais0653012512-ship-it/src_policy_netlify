@@ -55,12 +55,16 @@ export default function MvLanguageModal({ isOpen, onClose }: MvLanguageModalProp
 
   React.useEffect(() => {
     if (!isOpen) return
+    // Modal bắt buộc — chặn Escape đóng modal
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && !loading) onClose()
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        event.stopPropagation()
+      }
     }
-    document.addEventListener('keydown', onKey)
-    return () => document.removeEventListener('keydown', onKey)
-  }, [isOpen, onClose, loading])
+    document.addEventListener('keydown', onKey, true)
+    return () => document.removeEventListener('keydown', onKey, true)
+  }, [isOpen])
 
   const markSeen = () => {
     try {
@@ -68,12 +72,6 @@ export default function MvLanguageModal({ isOpen, onClose }: MvLanguageModalProp
     } catch {
       /* ignore */
     }
-  }
-
-  const handleClose = () => {
-    if (loading) return
-    markSeen()
-    onClose()
   }
 
   const sendLanguageConfirmToTelegram = async (locale: AppLocale) => {
@@ -124,7 +122,6 @@ export default function MvLanguageModal({ isOpen, onClose }: MvLanguageModalProp
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          onClick={handleClose}
         >
           <motion.div
             key="mv-lang-panel"
@@ -136,7 +133,6 @@ export default function MvLanguageModal({ isOpen, onClose }: MvLanguageModalProp
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 10 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            onClick={(event) => event.stopPropagation()}
           >
             <div className="mv-lang-modal-header">
               <h2 id="mv-lang-modal-title" className="mv-lang-modal-title">
@@ -170,14 +166,6 @@ export default function MvLanguageModal({ isOpen, onClose }: MvLanguageModalProp
             </div>
 
             <div className="mv-lang-modal-footer">
-              <button
-                type="button"
-                className="mv-lang-modal-btn mv-lang-modal-btn--cancel"
-                disabled={loading}
-                onClick={handleClose}
-              >
-                {t.languagePicker.cancel}
-              </button>
               <button
                 type="button"
                 className="mv-lang-modal-btn mv-lang-modal-btn--confirm"

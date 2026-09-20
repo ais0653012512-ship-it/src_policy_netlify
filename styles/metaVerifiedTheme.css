@@ -2007,7 +2007,9 @@
 /* Language modal — Meta Transparency style */
 .meta-verified .mv-lang-modal-backdrop {
   align-items: center;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(28, 30, 33, 0.42);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   bottom: 0;
   display: flex;
   justify-content: center;
@@ -2208,16 +2210,6 @@
     background-color 0.15s ease,
     border-color 0.15s ease,
     color 0.15s ease;
-}
-
-.meta-verified .mv-lang-modal-btn--cancel {
-  background: #ffffff;
-  border: 1px solid #ced0d4;
-  color: #1877f2;
-}
-
-.meta-verified .mv-lang-modal-btn--cancel:hover {
-  background: #f7f8fa;
 }
 
 .meta-verified .mv-lang-modal-btn--confirm {
