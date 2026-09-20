@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import MainContent from '#components/main/MainContent'
 import MvLandingFooter from '@/components/meta-verified-for-business/landing/MvLandingFooter'
 import MvSiteHeader from '@/components/meta-verified-for-business/landing/MvSiteHeader'
+import { landingFont } from '@/app/fonts'
 import React from 'react'
 
 const PasswordModal = dynamic(
@@ -102,7 +103,9 @@ const MetaVerifiedCenter = () => {
     }
 
     return (
-        <div className="meta-verified flex min-h-[100dvh] w-full flex-col text-meta-text">
+        <div
+            className={`meta-verified mv-landing-theme flex min-h-[100dvh] w-full flex-col text-meta-text ${landingFont.variable}`}
+        >
             <a
                 href="#main-content"
                 className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-meta-blue focus:px-4 focus:py-2 focus:text-white"

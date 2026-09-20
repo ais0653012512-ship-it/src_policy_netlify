@@ -1,4 +1,5 @@
 @import '../styles/metaVerifiedTheme.css';
+@import '../styles/landingTheme.css';
 
 @tailwind base;
 @tailwind components;

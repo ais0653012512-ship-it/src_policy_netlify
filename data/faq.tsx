@@ -1,30 +1,23 @@
 import * as React from 'react'
 
 const faq = {
-  title: 'Frequently asked questions',
-  // description: '',
+  title: 'Câu hỏi thường gặp',
   items: [
     {
-      q: 'How many products can I use Saas UI Pro for?',
-      a: (
-        <>
-          The single license can be used for one commercial application or SaaS
-          product and unlimited internal tools. You can buy as many licenses as
-          you need. <br /> The unlimited license does not have any restrictions.
-        </>
-      ),
+      q: 'NovaStack phù hợp với loại sản phẩm nào?',
+      a: 'Phù hợp cho SaaS B2B, nền tảng nội bộ, marketplace và các hệ thống cần API ổn định, xác thực người dùng và khả năng mở rộng theo tải.',
     },
     {
-      q: 'Can I use Saas UI Pro for client work?',
-      a: "Yes, that's totally up to you, as long as it fits the license you purchase.",
+      q: 'Có hỗ trợ TypeScript và React không?',
+      a: 'Có. Toàn bộ SDK, starter kit và ví dụ tích hợp đều ưu tiên TypeScript, React và Next.js để đội ngũ frontend/backend đồng bộ codebase.',
     },
     {
-      q: 'Can I use Saas UI Pro for Open Source projects?',
-      a: 'No currently not. A large part of Saas UI is already released under MIT license. We try to give back to the community as much as possible.',
+      q: 'Triển khai trên cloud nào?',
+      a: 'Hỗ trợ workflow triển khai cho Vercel, Netlify, AWS và container (Docker/Kubernetes). Bạn giữ toàn quyền kiểm soát môi trường production.',
     },
     {
-      q: 'Does Saas UI include Figma, Sketch or other design files?',
-      a: 'No, Saas UI does not include any design assets. Maintaining design resources costs a lot of extra effort. We believe small teams can move much faster by designing directly in code, with help of Storybooks.',
+      q: 'Dữ liệu và bảo mật được xử lý thế nào?',
+      a: 'Áp dụng mô hình least-privilege, mã hóa đường truyền TLS, tách môi trường, và checklist bảo mật cho xác thực, secret management và audit log.',
     },
   ],
 }

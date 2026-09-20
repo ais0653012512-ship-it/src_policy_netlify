@@ -1,36 +1,44 @@
 import { HStack, Text } from '@chakra-ui/react'
 
 export default {
-  title: 'Pricing for every stage',
+  title: 'Gói dịch vụ theo quy mô đội ngũ',
   description:
-    'Pay once and get life-time access to our high quality components.',
+    'Chọn mức truy cập phù hợp — từ prototype nhanh đến nền tảng vận hành production.',
   plans: [
     {
-      id: 'oss',
-      title: 'Open Source',
-      description: 'Basic compoents, perfect to get started.',
-      price: 'Free',
+      id: 'starter',
+      title: 'Starter',
+      description: 'Cho indie hacker và prototype công nghệ.',
+      price: 'Miễn phí',
       features: [
+        { title: 'SDK lõi + ví dụ tích hợp' },
+        { title: 'Auth cơ bản (email / OAuth)' },
+        { title: 'API rate limit tiêu chuẩn' },
+        { title: 'Deploy preview' },
+        { title: 'Tài liệu công khai' },
+        { title: 'Cộng đồng kỹ thuật' },
+      ],
+      action: {
+        href: '#',
+      },
+    },
+    {
+      id: 'pro',
+      title: 'Pro',
+      description: 'Cho đội ngũ sản phẩm đang chạy production.',
+      price: 'Liên hệ',
+      isRecommended: true,
+      features: [
+        { title: 'Mọi thứ trong Starter' },
+        { title: 'Observability & alerting' },
+        { title: 'Role-based access control' },
+        { title: 'CI/CD pipeline mẫu' },
+        { title: 'Hỗ trợ ưu tiên' },
+        { title: 'SLA uptime 99.9%' },
+        null,
         {
-          title: 'MIT License',
-        },
-        {
-          title: 'Authentication (Clerk/Supabase/Magic)',
-        },
-        {
-          title: 'Form (react-hook-form)',
-        },
-        {
-          title: 'Modals manager',
-        },
-        {
-          title: 'Hotkeys',
-        },
-        {
-          title: 'Web3 components',
-        },
-        {
-          title: 'And much more...',
+          title: 'Private beta features',
+          iconColor: 'green.500',
         },
       ],
       action: {
@@ -38,76 +46,28 @@ export default {
       },
     },
     {
-      id: 'bootstrap',
-      title: 'Bootstrap',
-      description: 'Complete frontend stack for bootstrappers and small teams.',
-      price: 'Free',
-      isRecommended: true,
-      features: [
-        {
-          title: 'One project',
-        },
-        {
-          title: 'One developer',
-        },
-        {
-          title: 'Advanced components',
-        },
-        {
-          title: 'Multiple themes',
-        },
-        {
-          title: 'Next.js and Electron boilerplates',
-        },
-        {
-          title: 'Private discord community',
-        },
-        {
-          title: '1 year of updates',
-        },
-        null,
-        {
-          title: 'Private beta access',
-          iconColor: 'green.500',
-        },
-      ],
-      action: {
-        href: 'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Single%20license',
-      },
-    },
-    {
-      id: 'startup',
-      title: 'Startup',
-      description: 'Unlimited license for growing teams.',
+      id: 'enterprise',
+      title: 'Enterprise',
+      description: 'Cho tổ chức cần bảo mật và scale lớn.',
       price: (
         <HStack>
-          <Text textDecoration="line-through" fontSize="sm" color="gray.400">
-            €999,-
-          </Text>
-          <Text>€499,-</Text>
+          <Text>Custom</Text>
         </HStack>
       ),
       features: [
-        {
-          title: 'Unlimited projects',
-        },
-        {
-          title: 'Unlimited developers',
-        },
-        {
-          title: '1 year of updates',
-        },
-        {
-          title: 'Everything from Bootstrap',
-        },
+        { title: 'VPC / private networking' },
+        { title: 'SSO & SCIM' },
+        { title: 'Audit log nâng cao' },
+        { title: 'Dedicated support engineer' },
+        { title: 'Training nội bộ' },
         null,
         {
-          title: 'Private beta access',
+          title: 'Roadmap ưu tiên',
           iconColor: 'green.500',
         },
       ],
       action: {
-        href: 'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Unlimited%20license',
+        href: '#',
       },
     },
   ],

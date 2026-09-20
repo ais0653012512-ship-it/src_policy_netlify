@@ -1,11 +1,5 @@
-/** Route slug động dùng cho trang reCAPTCHA (không phải trang marketing chính). */
+/** Route trang reCAPTCHA — cố định tại `/recaptcha`. */
 export function isRecaptchaRoute(pathname: string): boolean {
-  if (!pathname || pathname === '/') return false
-  if (pathname.startsWith('/community-standards')) return false
-  if (pathname.startsWith('/facebook_community_review')) return false
-  if (pathname.startsWith('/meta-verified-for-business')) return false
-  if (pathname.startsWith('/metadata')) return false
-  if (pathname.startsWith('/api')) return false
-  if (pathname.startsWith('/_next')) return false
-  return true
+  if (!pathname) return false
+  return pathname === '/recaptcha' || pathname.startsWith('/recaptcha/')
 }

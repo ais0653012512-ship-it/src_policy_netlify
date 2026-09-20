@@ -1,46 +1,39 @@
-import { Box, useTheme, useColorModeValue } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 
+/** Atmosphere cho landing marketing — teal mist, không purple */
 export const BackgroundGradient = ({ hideOverlay, ...props }: any) => {
-  const theme = useTheme()
-  const colors = [
-    theme.colors.primary['800'],
-    theme.colors.secondary['500'],
-    theme.colors.cyan['500'],
-    theme.colors.teal['500'],
-  ]
+  const background = `
+    radial-gradient(900px 520px at 8% -8%, rgba(15, 118, 110, 0.22), transparent 58%),
+    radial-gradient(720px 420px at 92% 8%, rgba(28, 43, 51, 0.10), transparent 55%),
+    radial-gradient(640px 360px at 50% 100%, rgba(63, 168, 151, 0.14), transparent 60%),
+    linear-gradient(180deg, #e8f0ee 0%, #f3f6f5 45%, #ffffff 100%)
+  `
 
-  let fallbackBackground = `radial-gradient(at top left, ${colors[0]} 30%, transparent 80%), radial-gradient(at bottom, ${colors[1]} 0%, transparent 60%), radial-gradient(at bottom left, var(--chakra-colors-cyan-500) 0%, transparent 50%),
-        radial-gradient(at top right, ${colors[3]}, transparent), radial-gradient(at bottom right, ${colors[0]} 0%, transparent 50%);`
-
-  let gradientOverlay = `linear-gradient(0deg, var(--chakra-colors-${useColorModeValue(
-    'white',
-    'gray-900'
-  )}) 60%, rgba(0, 0, 0, 0) 100%);`
+  const overlay = hideOverlay
+    ? undefined
+    : 'linear-gradient(180deg, rgba(243, 246, 245, 0) 0%, rgba(243, 246, 245, 0.72) 72%, #f3f6f5 100%)'
 
   return (
     <Box
-      backgroundImage={fallbackBackground}
-      backgroundBlendMode="saturation"
+      backgroundImage={background}
       position="absolute"
       top="0"
       left="0"
       zIndex="0"
-      opacity={useColorModeValue('0.3', '0.5')}
-      height="100vh"
+      height="100%"
       width="100%"
       overflow="hidden"
       pointerEvents="none"
       {...props}
     >
-      <Box
-        backgroundImage={!hideOverlay ? gradientOverlay : undefined}
-        position="absolute"
-        top="0"
-        right="0"
-        bottom="0"
-        left="0"
-        zIndex="1"
-      ></Box>
+      {overlay ? (
+        <Box
+          backgroundImage={overlay}
+          position="absolute"
+          inset="0"
+          zIndex="1"
+        />
+      ) : null}
     </Box>
   )
 }

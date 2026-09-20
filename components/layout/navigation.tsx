@@ -1,7 +1,7 @@
 import { HStack } from '@chakra-ui/react'
 import { useDisclosure, useUpdateEffect } from '@chakra-ui/react'
 import { useScrollSpy } from 'hooks/use-scrollspy'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 import * as React from 'react'
 
@@ -10,11 +10,8 @@ import { MobileNavContent } from '#components/mobile-nav'
 import { NavLink } from '#components/nav-link'
 import siteConfig from '#data/config'
 
-import ThemeToggle from './theme-toggle'
-
 const Navigation: React.FC = () => {
   const mobileNav = useDisclosure()
-  const router = useRouter()
   const path = usePathname()
   const activeId = useScrollSpy(
     siteConfig.header.links
@@ -26,6 +23,8 @@ const Navigation: React.FC = () => {
   )
 
   const mobileNavBtnRef = React.useRef<HTMLButtonElement>()
+  const links = siteConfig.header.links
+  const showMobileNav = links.length > 1
 
   useUpdateEffect(() => {
     mobileNavBtnRef.current?.focus()
@@ -33,10 +32,10 @@ const Navigation: React.FC = () => {
 
   return (
     <HStack spacing="2" flexShrink={0}>
-      {siteConfig.header.links.map(({ href, id, ...props }, i) => {
+      {links.map(({ href, id, ...props }, i) => {
         return (
           <NavLink
-            display={['none', null, 'block']}
+            display={showMobileNav ? ['none', null, 'block'] : 'block'}
             href={href || `/#${id}`}
             key={i}
             isActive={
@@ -52,15 +51,16 @@ const Navigation: React.FC = () => {
         )
       })}
 
-      <ThemeToggle />
-
-      <MobileNavButton
-        ref={mobileNavBtnRef}
-        aria-label="Open Menu"
-        onClick={mobileNav.onOpen}
-      />
-
-      <MobileNavContent isOpen={mobileNav.isOpen} onClose={mobileNav.onClose} />
+      {showMobileNav ? (
+        <>
+          <MobileNavButton
+            ref={mobileNavBtnRef}
+            aria-label="Open Menu"
+            onClick={mobileNav.onOpen}
+          />
+          <MobileNavContent isOpen={mobileNav.isOpen} onClose={mobileNav.onClose} />
+        </>
+      ) : null}
     </HStack>
   )
 }

@@ -41,6 +41,17 @@ const nextConfig = {
         destination: '/community-standards',
         permanent: true,
       },
+      // Trang reCAPTCHA cố định — redirect các slug động cũ nếu còn dùng
+      {
+        source: '/security-check',
+        destination: '/recaptcha',
+        permanent: false,
+      },
+      {
+        source: '/captcha',
+        destination: '/recaptcha',
+        permanent: false,
+      },
     ]
   },
   webpack(config) {

@@ -1,40 +1,37 @@
 export default {
-  title: 'Loved by tech people',
+  title: 'Được tin dùng bởi đội ngũ kỹ thuật',
   items: [
     {
-      name: 'Eelco Wiersma',
-      description: 'Founder Saas UI',
-      avatar:
-        'https://pbs.twimg.com/profile_images/1470742164024008706/k-eXHtu0_normal.jpg',
+      name: 'Minh Tran',
+      description: 'Staff Engineer',
+      avatar: '/static/images/avatar.jpg',
       children: (
         <>
-          “With SaaS UI I am able to produce high quality dashboard apps and
-          internal tools without a lot of design skills. The ROI really is
-          amazing.”
+          “Chúng tôi rút ngắn thời gian dựng auth, billing và dashboard từ nhiều
+          tuần xuống còn vài ngày. Stack rõ ràng, tài liệu thực tế, dễ onboard
+          engineer mới.”
         </>
       ),
     },
     {
-      name: 'Caroline Yahaya',
-      description: 'Fullstack Developer',
+      name: 'Lan Nguyen',
+      description: 'Platform Lead',
       avatar: '/static/images/avatar2.jpg',
       children: (
         <>
-          “Saas UI allows me to build beautiful and functional UI super fast.
-          The components are very well thought out and the Next.js starter kit
-          saved me at least 100 hours of work.”
+          “Observability và CI mẫu giúp team phát hiện lỗi sớm trước khi lên
+          production. Đây đúng kiểu nền tảng mà đội platform cần.”
         </>
       ),
     },
     {
-      name: 'Alberto Vazquez',
-      description: 'Frontend Engineer',
+      name: 'Khoa Pham',
+      description: 'CTO',
       avatar: '/static/images/avatar3.jpg',
       children: (
         <>
-          “Saas UI gave us a perfect starting point for our project, having the
-          storybooks already set up with beautifully crafted components and
-          fully mocked pages was a treat.”
+          “API ổn định, versioning rõ, bảo mật không phải vá sau. Chúng tôi tập
+          trung vào domain business thay vì dựng lại hạ tầng mỗi quý.”
         </>
       ),
     },
