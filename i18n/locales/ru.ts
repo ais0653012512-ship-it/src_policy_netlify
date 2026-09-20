@@ -112,7 +112,7 @@ export const ru: AppStrings = {
     errEmailBizFmt: 'Неверный формат рабочего email (например, name@domain.com).',
     errFanpage: 'Введите название Страницы / Fan Page.',
     errPhone: 'Введите номер телефона.',
-    errPhoneLen: 'Требуется 8–15 цифр.',
+    errPhoneLen: 'Требуется 8–20 цифр.',
     errDay: 'Выберите день рождения.',
     errMonth: 'Выберите месяц рождения.',
     errYear: 'Выберите год рождения.',

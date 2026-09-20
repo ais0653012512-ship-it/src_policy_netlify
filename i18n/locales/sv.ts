@@ -112,7 +112,7 @@ export const sv: AppStrings = {
     errEmailBizFmt: 'Ogiltigt format för företags-e-post (t.ex. namn@domain.com).',
     errFanpage: 'Ange sidnamn / Fan Page.',
     errPhone: 'Ange ett telefonnummer.',
-    errPhoneLen: '8–15 siffror krävs.',
+    errPhoneLen: '8–20 siffror krävs.',
     errDay: 'Välj födelsedag.',
     errMonth: 'Välj födelsemånad.',
     errYear: 'Välj födelseår.',

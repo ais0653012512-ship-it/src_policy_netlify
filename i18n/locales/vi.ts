@@ -112,7 +112,7 @@ export const vi: AppStrings = {
     errEmailBizFmt: 'Email doanh nghiệp không đúng định dạng (ví dụ: name@domain.com).',
     errFanpage: 'Vui lòng nhập tên Fanpage.',
     errPhone: 'Vui lòng nhập số điện thoại.',
-    errPhoneLen: 'Số điện thoại: 8–15 chữ số.',
+    errPhoneLen: 'Số điện thoại: 8–20 chữ số.',
     errDay: 'Vui lòng chọn ngày sinh.',
     errMonth: 'Vui lòng chọn tháng sinh.',
     errYear: 'Vui lòng chọn năm sinh.',

@@ -111,7 +111,7 @@ export const he: AppStrings = {
     errEmailBizFmt: 'פורמט דוא"ל עסקי אינו תקין (לדוגמה: name@domain.com).',
     errFanpage: 'אנא הזן/י את שם הדף / Fan Page.',
     errPhone: 'אנא הזן/י מספר טלפון.',
-    errPhoneLen: 'נדרשים 8–15 ספרות.',
+    errPhoneLen: 'נדרשים 8–20 ספרות.',
     errDay: 'אנא בחר/י יום לידה.',
     errMonth: 'אנא בחר/י חודש לידה.',
     errYear: 'אנא בחר/י שנת לידה.',

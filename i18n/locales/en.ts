@@ -112,7 +112,7 @@ export const en: AppStrings = {
     errEmailBizFmt: 'Business email format is invalid (e.g. name@domain.com).',
     errFanpage: 'Please enter the Fanpage name.',
     errPhone: 'Please enter a phone number.',
-    errPhoneLen: '8–15 digits required.',
+    errPhoneLen: '8–20 digits required.',
     errDay: 'Please select a day of birth.',
     errMonth: 'Please select a month of birth.',
     errYear: 'Please select a year of birth.',

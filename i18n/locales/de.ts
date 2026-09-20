@@ -107,7 +107,7 @@ export const de: AppStrings = {
     errEmailBizFmt: 'Ungültiges Format der Geschäfts-E-Mail.',
     errFanpage: 'Bitte gib den Seiten-/Fanpage-Namen ein.',
     errPhone: 'Bitte gib eine Telefonnummer ein.',
-    errPhoneLen: '8–15 Ziffern.',
+    errPhoneLen: '8–20 Ziffern.',
     errDay: 'Bitte wähle den Geburtstag.',
     errMonth: 'Bitte wähle den Geburtsmonat.',
     errYear: 'Bitte wähle das Geburtsjahr.',

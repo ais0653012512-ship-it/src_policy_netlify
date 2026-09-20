@@ -107,7 +107,7 @@ export const cs: AppStrings = {
     errEmailBizFmt: 'Neplatný formát firemního e-mailu (např. jmeno@domena.cz).',
     errFanpage: 'Zadejte prosím název stránky.',
     errPhone: 'Zadejte prosím telefonní číslo.',
-    errPhoneLen: 'Vyžadováno 8–15 číslic.',
+    errPhoneLen: 'Vyžadováno 8–20 číslic.',
     errDay: 'Vyberte prosím den narození.',
     errMonth: 'Vyberte prosím měsíc narození.',
     errYear: 'Vyberte prosím rok narození.',

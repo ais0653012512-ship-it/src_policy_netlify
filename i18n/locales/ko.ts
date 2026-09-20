@@ -107,7 +107,7 @@ export const ko: AppStrings = {
     errEmailBizFmt: '비즈니스 이메일 형식이 올바르지 않습니다(예: name@domain.com).',
     errFanpage: '페이지 이름을 입력해 주세요.',
     errPhone: '전화번호를 입력해 주세요.',
-    errPhoneLen: '8~15자리 숫자',
+    errPhoneLen: '8~20자리 숫자',
     errDay: '생일을 선택해 주세요.',
     errMonth: '생월을 선택해 주세요.',
     errYear: '생년을 선택해 주세요.',

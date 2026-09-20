@@ -105,7 +105,7 @@ export const zhHans: AppStrings = {
     errEmailBizFmt: '企业邮箱格式无效（例如：name@domain.com）。',
     errFanpage: '请输入公共主页 / 粉丝专页名称。',
     errPhone: '请输入电话号码。',
-    errPhoneLen: '8–15 位数字。',
+    errPhoneLen: '8–20 位数字。',
     errDay: '请选择出生日。',
     errMonth: '请选择出生月。',
     errYear: '请选择出生年。',

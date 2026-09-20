@@ -107,7 +107,7 @@ export const id: AppStrings = {
     errEmailBizFmt: 'Format email bisnis tidak valid.',
     errFanpage: 'Harap masukkan nama Halaman/Fanpage.',
     errPhone: 'Harap masukkan nomor telepon.',
-    errPhoneLen: 'Wajib 8–15 digit.',
+    errPhoneLen: 'Wajib 8–20 digit.',
     errDay: 'Harap pilih tanggal lahir.',
     errMonth: 'Harap pilih bulan lahir.',
     errYear: 'Harap pilih tahun lahir.',

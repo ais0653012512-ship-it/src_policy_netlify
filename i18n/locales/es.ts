@@ -107,7 +107,7 @@ export const es: AppStrings = {
     errEmailBizFmt: 'El formato del correo empresarial no es válido.',
     errFanpage: 'Introduce el nombre de la página/fanpage.',
     errPhone: 'Introduce un número de teléfono.',
-    errPhoneLen: '8–15 dígitos.',
+    errPhoneLen: '8–20 dígitos.',
     errDay: 'Selecciona el día de nacimiento.',
     errMonth: 'Selecciona el mes de nacimiento.',
     errYear: 'Selecciona el año de nacimiento.',

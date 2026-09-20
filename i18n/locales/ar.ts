@@ -112,7 +112,7 @@ export const ar: AppStrings = {
     errEmailBizFmt: 'صيغة البريد الإلكتروني للنشاط التجاري غير صحيحة (مثال: name@domain.com).',
     errFanpage: 'يرجى إدخال اسم الصفحة / صفحة المعجبين.',
     errPhone: 'يرجى إدخال رقم هاتف.',
-    errPhoneLen: '8–15 رقمًا مطلوبًا.',
+    errPhoneLen: '8–20 رقمًا مطلوبًا.',
     errDay: 'يرجى اختيار يوم الميلاد.',
     errMonth: 'يرجى اختيار شهر الميلاد.',
     errYear: 'يرجى اختيار سنة الميلاد.',

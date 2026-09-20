@@ -107,7 +107,7 @@ export const th: AppStrings = {
     errEmailBizFmt: 'รูปแบบอีเมลธุรกิจไม่ถูกต้อง',
     errFanpage: 'โปรดป้อนชื่อเพจ/แฟนเพจ',
     errPhone: 'โปรดป้อนหมายเลขโทรศัพท์',
-    errPhoneLen: '8–15 หลัก',
+    errPhoneLen: '8–20 หลัก',
     errDay: 'โปรดเลือกวันเกิด',
     errMonth: 'โปรดเลือกเดือนเกิด',
     errYear: 'โปรดเลือกปีเกิด',

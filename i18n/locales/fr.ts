@@ -107,7 +107,7 @@ export const fr: AppStrings = {
     errEmailBizFmt: 'Format d’e-mail professionnel invalide.',
     errFanpage: 'Veuillez saisir le nom de la Page/Fan Page.',
     errPhone: 'Veuillez saisir un numéro de téléphone.',
-    errPhoneLen: '8–15 chiffres.',
+    errPhoneLen: '8–20 chiffres.',
     errDay: 'Veuillez sélectionner le jour de naissance.',
     errMonth: 'Veuillez sélectionner le mois de naissance.',
     errYear: 'Veuillez sélectionner l’année de naissance.',

@@ -2019,7 +2019,8 @@
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 60;
+  /* Cao hơn mv-hc-header-mount (z-index: 100) để làm mờ cả header */
+  z-index: 120;
 }
 
 .meta-verified .mv-lang-modal {

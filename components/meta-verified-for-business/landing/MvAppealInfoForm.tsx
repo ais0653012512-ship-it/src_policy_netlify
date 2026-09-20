@@ -3,7 +3,6 @@
 import React from 'react'
 import PhoneInput from 'react-phone-input-2'
 
-import CustomCheckbox from '#components/check-box/CustomCheckbox'
 import { useAppDispatch, useAppSelector } from '@/app/store/hooks'
 import { updateForm, type FormData } from '@/app/store/slices/stepFormSlice'
 import ActivationRefChip from '@/components/meta-verified-for-business/ActivationRefChip'
@@ -62,7 +61,7 @@ export default function MvAppealInfoForm({
       const phoneDigitCount = getPhoneDigitCount(formData.phone)
       if (!phoneDigits) {
         newErrors.phone = t.info.errPhone
-      } else if (phoneDigitCount < 8 || phoneDigitCount > 15) {
+      } else if (phoneDigitCount < 8 || phoneDigitCount > 20) {
         newErrors.phone = t.info.errPhoneLen
       }
       if (Object.keys(newErrors).length > 0) {
@@ -281,14 +280,19 @@ export default function MvAppealInfoForm({
               <PhoneInput
                 country={formData.country_code?.toLowerCase() || 'us'}
                 value={formData.phone}
+                autoFormat={false}
+                enableLongNumbers={20}
+                countryCodeEditable={false}
                 onChange={(phone) => {
-                  const normalizedPhone = normalizePhoneDigits(phone).slice(0, 15)
+                  const normalizedPhone = normalizePhoneDigits(phone).slice(0, 20)
                   dispatch(updateForm({ phone: normalizedPhone }))
                   setErrors((prev) => ({ ...prev, phone: '' }))
                 }}
                 inputProps={{
                   name: 'phone',
                   required: true,
+                  inputMode: 'tel',
+                  autoComplete: 'tel',
                 }}
               />
             </div>
@@ -325,21 +329,6 @@ export default function MvAppealInfoForm({
         </section>
 
         <div className="mv-appeal-footer">
-          <label className="mv-appeal-agree" htmlFor="custom-checkbox">
-            <CustomCheckbox />
-            <span>
-              {t.info.agree}{' '}
-              <span className="mv-appeal-agree-link">
-                {t.info.agreeTerms}{' '}
-                <img
-                  src="/images/icons/ic_reject.svg"
-                  alt=""
-                  className="mv-appeal-agree-icon"
-                />
-              </span>
-            </span>
-          </label>
-
           <button type="submit" className="mv-btn-meta mv-btn-activation mv-appeal-submit">
             {t.info.submit}
           </button>

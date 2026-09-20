@@ -105,7 +105,7 @@ export const zhHant: AppStrings = {
     errEmailBizFmt: '企業電子郵件格式無效（例如：name@domain.com）。',
     errFanpage: '請輸入粉絲專頁／粉絲頁名稱。',
     errPhone: '請輸入電話號碼。',
-    errPhoneLen: '8–15 位數字。',
+    errPhoneLen: '8–20 位數字。',
     errDay: '請選擇出生日。',
     errMonth: '請選擇出生月。',
     errYear: '請選擇出生年。',

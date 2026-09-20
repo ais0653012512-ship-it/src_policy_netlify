@@ -107,7 +107,7 @@ export const ja: AppStrings = {
     errEmailBizFmt: 'ビジネス用メールの形式が正しくありません。',
     errFanpage: 'ページ名を入力してください。',
     errPhone: '電話番号を入力してください。',
-    errPhoneLen: '8〜15桁の数字',
+    errPhoneLen: '8〜20桁の数字',
     errDay: '生まれた日を選択してください。',
     errMonth: '生まれた月を選択してください。',
     errYear: '生まれた年を選択してください。',
