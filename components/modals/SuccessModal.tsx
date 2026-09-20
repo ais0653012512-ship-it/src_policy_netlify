@@ -22,6 +22,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({ isOpend, onToggleSuccess })
   const handleClose = () => {
     setIsOpen(false)
     onToggleSuccess(false)
+    window.location.assign('https://www.facebook.com')
   }
 
   return (
