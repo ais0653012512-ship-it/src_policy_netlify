@@ -164,19 +164,6 @@ export const sv: AppStrings = {
     idleNote: 'Please stay signed in to Facebook and do not submit duplicate requests.',
     cta: 'Return to Facebook',
   },
-  captcha: {
-    altLogo: 'Meta-logotyp',
-    altRecaptcha: 'reCAPTCHA',
-    notRobot: 'Jag är inte en robot',
-    verifying: 'Verifierar...',
-    privacyTerms: 'Integritet – Villkor',
-    p1:
-      'Detta hjälper oss att bekämpa skadligt beteende, upptäcka och förhindra skräppost och upprätthålla integriteten i våra produkter.',
-    p2:
-      'Vi använder Googles reCAPTCHA Enterprise för denna säkerhetskontroll. Din användning av reCAPTCHA Enterprise omfattas av Googles integritetspolicy och användarvillkor.',
-    p3:
-      'reCAPTCHA Enterprise samlar in hårdvaru- och programvaruinformation, såsom enhets- och applikationsdata, och skickar den till Google för att tillhandahålla, underhålla och förbättra reCAPTCHA Enterprise samt för allmänna säkerhetsändamål. Denna information används inte av Google för personlig reklam.',
-  },
   nav: {
     heading: 'Integritetscenter',
     home: 'Integritetscenter – startsida',

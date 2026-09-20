@@ -179,16 +179,6 @@ export type AppStrings = {
     idleNote: string
     cta: string
   }
-  captcha: {
-    altLogo: string
-    altRecaptcha: string
-    notRobot: string
-    verifying: string
-    privacyTerms: string
-    p1: string
-    p2: string
-    p3: string
-  }
   nav: {
     heading: string
     home: string

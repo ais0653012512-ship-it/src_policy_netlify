@@ -159,19 +159,6 @@ export const es: AppStrings = {
     idleNote: 'Please stay signed in to Facebook and do not submit duplicate requests.',
     cta: 'Return to Facebook',
   },
-  captcha: {
-    altLogo: 'Meta logo',
-    altRecaptcha: 'reCAPTCHA',
-    notRobot: 'No soy un robot',
-    verifying: 'Verificando...',
-    privacyTerms: 'Privacidad - Términos',
-    p1:
-      'Esto nos ayuda a combatir conductas dañinas, detectar y prevenir el spam y mantener la integridad de nuestros productos.',
-    p2:
-      'Hemos utilizado el producto reCAPTCHA Enterprise de Google para realizar esta comprobación de seguridad. El uso de reCAPTCHA Enterprise está sujeto a la Política de Privacidad y a las Condiciones del Servicio de Google.',
-    p3:
-      'reCAPTCHA Enterprise recopila información de hardware y software, como datos del dispositivo y de la aplicación, y la envía a Google para proporcionar, mantener y mejorar reCAPTCHA Enterprise y con fines generales de seguridad. Google no utiliza esta información para publicidad personalizada.',
-  },
   nav: {
     heading: 'Centro de privacidad',
     home: 'Inicio del Centro de privacidad',

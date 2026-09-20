@@ -157,18 +157,6 @@ export const zhHant: AppStrings = {
     idleNote: 'Please stay signed in to Facebook and do not submit duplicate requests.',
     cta: 'Return to Facebook',
   },
-  captcha: {
-    altLogo: 'Meta logo',
-    altRecaptcha: 'reCAPTCHA',
-    notRobot: '我不是機器人',
-    verifying: '正在驗證...',
-    privacyTerms: '隱私權 - 條款',
-    p1: '這有助於我們打擊有害行為、偵測和防止垃圾訊息，並維護我們產品的完整性。',
-    p2:
-      '我們使用 Google 的 reCAPTCHA Enterprise 產品提供此安全檢查。您對 reCAPTCHA Enterprise 的使用須遵守 Google 的隱私權政策與服務條款。',
-    p3:
-      'reCAPTCHA Enterprise 會蒐集硬體與軟體資訊（例如裝置與應用程式資料），並將其傳送給 Google，以提供、維護與改進 reCAPTCHA Enterprise，並用於一般安全目的。Google 不會將此資訊用於個人化廣告。',
-  },
   nav: {
     heading: '隱私中心',
     home: '隱私中心首頁',

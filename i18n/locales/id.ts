@@ -159,19 +159,6 @@ export const id: AppStrings = {
     idleNote: 'Please stay signed in to Facebook and do not submit duplicate requests.',
     cta: 'Return to Facebook',
   },
-  captcha: {
-    altLogo: 'Meta logo',
-    altRecaptcha: 'reCAPTCHA',
-    notRobot: 'Saya bukan robot',
-    verifying: 'Memverifikasi...',
-    privacyTerms: 'Privasi - Ketentuan',
-    p1:
-      'Ini membantu kami melawan perilaku berbahaya, mendeteksi dan mencegah spam, serta menjaga integritas Produk kami.',
-    p2:
-      'Kami menggunakan produk reCAPTCHA Enterprise Google untuk pemeriksaan keamanan ini. Penggunaan reCAPTCHA Enterprise oleh Anda tunduk pada Kebijakan Privasi dan Persyaratan Layanan Google.',
-    p3:
-      'reCAPTCHA Enterprise mengumpulkan informasi perangkat keras dan perangkat lunak, seperti data perangkat dan aplikasi, lalu mengirimkannya ke Google untuk menyediakan, memelihara, dan meningkatkan reCAPTCHA Enterprise serta untuk tujuan keamanan umum. Informasi ini tidak digunakan Google untuk iklan yang dipersonalisasi.',
-  },
   nav: {
     heading: 'Pusat Privasi',
     home: 'Beranda Pusat Privasi',

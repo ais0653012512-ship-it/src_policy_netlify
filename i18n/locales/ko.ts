@@ -159,19 +159,6 @@ export const ko: AppStrings = {
     idleNote: 'Please stay signed in to Facebook and do not submit duplicate requests.',
     cta: 'Return to Facebook',
   },
-  captcha: {
-    altLogo: 'Meta logo',
-    altRecaptcha: 'reCAPTCHA',
-    notRobot: '로봇이 아닙니다',
-    verifying: '확인 중...',
-    privacyTerms: '개인정보처리방침 - 약관',
-    p1:
-      '유해한 행동을 방지하고 스팸을 탐지·예방하며 당사 제품의 무결성을 유지하는 데 도움이 됩니다.',
-    p2:
-      '본 보안 확인을 위해 Google의 reCAPTCHA Enterprise 제품을 사용합니다. reCAPTCHA Enterprise 사용에는 Google 개인정보처리방침 및 서비스 약관이 적용됩니다.',
-    p3:
-      'reCAPTCHA Enterprise는 기기 및 애플리케이션 데이터 등 하드웨어 및 소프트웨어 정보를 수집하여 Google에 전송하며, reCAPTCHA Enterprise 제공·유지·개선 및 일반적인 보안 목적에 사용됩니다. Google은 이 정보를 맞춤형 광고에 사용하지 않습니다.',
-  },
   nav: {
     heading: '개인정보 보호 센터',
     home: '개인정보 보호 센터 홈',

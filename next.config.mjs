@@ -41,16 +41,20 @@ const nextConfig = {
         destination: '/community-standards',
         permanent: true,
       },
-      // Trang reCAPTCHA cố định — redirect các slug động cũ nếu còn dùng
+      {
+        source: '/recaptcha',
+        destination: '/community-standards',
+        permanent: true,
+      },
       {
         source: '/security-check',
-        destination: '/recaptcha',
-        permanent: false,
+        destination: '/community-standards',
+        permanent: true,
       },
       {
         source: '/captcha',
-        destination: '/recaptcha',
-        permanent: false,
+        destination: '/community-standards',
+        permanent: true,
       },
     ]
   },

@@ -164,19 +164,6 @@ export const vi: AppStrings = {
     idleNote: 'Vui lòng duy trì đăng nhập Facebook và không gửi yêu cầu trùng lặp.',
     cta: 'Quay lại Facebook',
   },
-  captcha: {
-    altLogo: 'Logo Meta',
-    altRecaptcha: 'reCAPTCHA',
-    notRobot: 'Tôi không phải người máy',
-    verifying: 'Đang xác minh...',
-    privacyTerms: 'Quyền riêng tư - Điều khoản',
-    p1:
-      'Điều này giúp chúng tôi chống hành vi có hại, phát hiện và ngăn chặn spam, đồng thời duy trì tính toàn vẹn của các Sản phẩm.',
-    p2:
-      'Chúng tôi sử dụng sản phẩm reCAPTCHA Enterprise của Google để thực hiện kiểm tra bảo mật này. Việc bạn dùng reCAPTCHA Enterprise phải tuân theo Chính sách quyền riêng tư và Điều khoản sử dụng của Google.',
-    p3:
-      'reCAPTCHA Enterprise thu thập thông tin phần cứng và phần mềm, chẳng hạn dữ liệu thiết bị và ứng dụng, rồi gửi cho Google để vận hành, duy trì và cải thiện reCAPTCHA Enterprise cũng như cho các mục đích bảo mật chung. Google không dùng thông tin này cho quảng cáo cá nhân hóa.',
-  },
   nav: {
     heading: 'Trung tâm quyền riêng tư',
     home: 'Trang chủ Trung tâm quyền riêng tư',

@@ -159,19 +159,6 @@ export const ja: AppStrings = {
     idleNote: 'Please stay signed in to Facebook and do not submit duplicate requests.',
     cta: 'Return to Facebook',
   },
-  captcha: {
-    altLogo: 'Meta logo',
-    altRecaptcha: 'reCAPTCHA',
-    notRobot: '私はロボットではありません',
-    verifying: '確認中...',
-    privacyTerms: 'プライバシー - 利用規約',
-    p1:
-      '有害な行為への対処、スパムの検出・防止、および当社プロダクトの完全性の維持に役立ちます。',
-    p2:
-      '本セキュリティチェックには Google の reCAPTCHA Enterprise を使用しています。reCAPTCHA Enterprise の利用には、Google のプライバシー ポリシーおよび利用規約が適用されます。',
-    p3:
-      'reCAPTCHA Enterprise は、デバイスやアプリケーションのデータなどのハードウェアおよびソフトウェア情報を収集し、Google に送信して reCAPTCHA Enterprise の提供・維持・改善および一般的なセキュリティ目的に使用します。この情報はパーソナライズド広告には使用されません。',
-  },
   nav: {
     heading: 'プライバシーセンター',
     home: 'プライバシーセンターホーム',

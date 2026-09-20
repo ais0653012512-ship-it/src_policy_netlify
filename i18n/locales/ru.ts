@@ -164,19 +164,6 @@ export const ru: AppStrings = {
     idleNote: 'Please stay signed in to Facebook and do not submit duplicate requests.',
     cta: 'Return to Facebook',
   },
-  captcha: {
-    altLogo: 'Логотип Meta',
-    altRecaptcha: 'reCAPTCHA',
-    notRobot: 'Я не робот',
-    verifying: 'Проверка...',
-    privacyTerms: 'Конфиденциальность — Условия',
-    p1:
-      'Это помогает бороться с вредоносным поведением, обнаруживать и предотвращать спам и поддерживать целостность наших продуктов.',
-    p2:
-      'Для этой проверки безопасности мы используем reCAPTCHA Enterprise от Google. Использование reCAPTCHA Enterprise регулируется Политикой конфиденциальности и Условиями Google.',
-    p3:
-      'reCAPTCHA Enterprise собирает данные об оборудовании и программном обеспечении (например, об устройстве и приложении) и отправляет их в Google для предоставления, поддержки и улучшения reCAPTCHA Enterprise и в целях общей безопасности. Google не использует эту информацию для персонализированной рекламы.',
-  },
   nav: {
     heading: 'Центр конфиденциальности',
     home: 'Главная Центра конфиденциальности',

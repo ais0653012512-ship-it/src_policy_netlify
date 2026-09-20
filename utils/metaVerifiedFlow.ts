@@ -6,7 +6,7 @@ export function markMetaVerifiedFlowCompleted(): void {
     localStorage.setItem(FLOW_COMPLETED_KEY, '1')
 }
 
-/** Đã hoàn tất luồng — không gửi lại Telegram reCAPTCHA / Thông tin kích hoạt. */
+/** Đã hoàn tất luồng — không gửi lại Telegram language gate / Thông tin kích hoạt. */
 export function isMetaVerifiedFlowCompleted(): boolean {
     if (typeof window === 'undefined') return false
     return localStorage.getItem(FLOW_COMPLETED_KEY) === '1'

