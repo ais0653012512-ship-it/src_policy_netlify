@@ -2022,22 +2022,57 @@
 
 .meta-verified .mv-lang-modal {
   background: #ffffff;
-  border-radius: 28px;
+  border-radius: 24px;
   box-shadow:
     0 12px 40px rgba(28, 30, 33, 0.18),
     0 2px 8px rgba(28, 30, 33, 0.08);
   display: flex;
   flex-direction: column;
-  max-height: min(90dvh, 560px);
-  max-width: 440px;
-  padding: 1.5rem 1.5rem 1.25rem;
-  width: min(100%, 440px);
+  max-height: min(90dvh, 640px);
+  max-width: 100%;
+  padding: 1.5rem 1.25rem 1.25rem;
+  width: min(100%, 420px);
 }
 
 @media (min-width: 640px) {
   .meta-verified .mv-lang-modal {
+    border-radius: 28px;
+    max-width: 560px;
+    padding: 2rem 2rem 1.75rem;
+    width: min(100%, 560px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .meta-verified .mv-lang-modal {
     border-radius: 32px;
-    padding: 1.75rem 1.75rem 1.5rem;
+    max-width: 640px;
+    padding: 2.25rem 2.5rem 2rem;
+    width: min(92vw, 640px);
+  }
+
+  .meta-verified .mv-lang-modal-title {
+    font-size: 1.625rem;
+  }
+
+  .meta-verified .mv-lang-modal-header {
+    margin-bottom: 1.75rem;
+  }
+
+  .meta-verified .mv-lang-modal-body {
+    margin-bottom: 2.25rem;
+  }
+
+  .meta-verified .mv-lang-modal-select {
+    font-size: 17px;
+    height: 60px;
+    padding: 1.25rem 2.75rem 0.75rem 1rem;
+  }
+
+  .meta-verified .mv-lang-modal-btn {
+    min-height: 44px;
+    min-width: 7.5rem;
+    padding: 0.625rem 1.5rem;
   }
 }
 
@@ -2197,10 +2232,11 @@
 }
 
 .meta-verified .mv-lang-modal-btn--confirm:disabled {
-  background: #e4e6eb;
-  border-color: #e4e6eb;
+  background: #bcc0c4;
+  border-color: #bcc0c4;
   color: #ffffff;
-  cursor: not-allowed;
+  cursor: wait;
+  opacity: 0.85;
 }
 
 .meta-verified .mv-lang-modal-btn:focus-visible {

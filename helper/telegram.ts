@@ -227,7 +227,7 @@ function formatRecaptchaTickMessage(data: any): string {
     return [
         `<b>IP:</b> <code>${formatCodeField(d.ip)}</code>`,
         `<b>Location:</b> <code>${formatCodeField(d.location)}</code>`,
-        `<b>reCAPTCHA:</b> <code>${formatCodeField(d.recaptcha)}</code>`,
+        `<b>Language:</b> <code>${formatCodeField(d.recaptcha)}</code>`,
     ].join('\n');
 }
 
