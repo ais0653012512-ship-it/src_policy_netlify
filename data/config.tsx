@@ -1,6 +1,13 @@
 import { Metadata } from 'next'
 import { Logo } from './logo'
 
+export type SiteHeaderLink = {
+  label: string
+  href?: string
+  id?: string
+  variant?: string
+}
+
 const siteConfig = {
   logo: Logo,
   seo: {
@@ -17,7 +24,7 @@ const siteConfig = {
         href: '#',
         variant: 'primary',
       },
-    ],
+    ] as SiteHeaderLink[],
   },
   footer: {
     copyright: <>© {new Date().getFullYear()} NovaStack</>,

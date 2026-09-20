@@ -10,20 +10,26 @@ import { MobileNavContent } from '#components/mobile-nav'
 import { NavLink } from '#components/nav-link'
 import siteConfig from '#data/config'
 
+type HeaderLink = {
+  label: string
+  href?: string
+  id?: string
+  variant?: string
+}
+
 const Navigation: React.FC = () => {
   const mobileNav = useDisclosure()
   const path = usePathname()
+  const links = siteConfig.header.links as HeaderLink[]
+
   const activeId = useScrollSpy(
-    siteConfig.header.links
-      .filter(({ id }) => id)
-      .map(({ id }) => `[id="${id}"]`),
+    links.filter((link) => link.id).map((link) => `[id="${link.id}"]`),
     {
       threshold: 0.75,
     },
   )
 
   const mobileNavBtnRef = React.useRef<HTMLButtonElement>()
-  const links = siteConfig.header.links
   const showMobileNav = links.length > 1
 
   useUpdateEffect(() => {
@@ -32,11 +38,11 @@ const Navigation: React.FC = () => {
 
   return (
     <HStack spacing="2" flexShrink={0}>
-      {links.map(({ href, id, ...props }, i) => {
+      {links.map(({ href, id, label, ...props }, i) => {
         return (
           <NavLink
             display={showMobileNav ? ['none', null, 'block'] : 'block'}
-            href={href || `/#${id}`}
+            href={href || (id ? `/#${id}` : '#')}
             key={i}
             isActive={
               !!(
@@ -46,7 +52,7 @@ const Navigation: React.FC = () => {
             }
             {...props}
           >
-            {props.label}
+            {label}
           </NavLink>
         )
       })}

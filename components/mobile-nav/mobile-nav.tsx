@@ -118,7 +118,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
                   ({ href, id, label, ...props }, i) => {
                     return (
                       <NavLink
-                        href={href || `/#${id}`}
+                        href={href || (id ? `/#${id}` : '#')}
                         key={i}
                         {...(props as any)}
                       >
