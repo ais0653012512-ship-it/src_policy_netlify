@@ -1,72 +1,57 @@
 'use client'
 
-import React from 'react';
+import React from 'react'
 
-import { useAppStrings } from '@/hooks/useAppStrings';
+import { useAppStrings } from '@/hooks/useAppStrings'
 
-import Modal from './Modal';
+import Modal from './Modal'
 
 interface SuccessModalProps {
-    isOpend: boolean;
-    onToggleSuccess: (value: boolean) => void;
+  isOpend: boolean
+  onToggleSuccess: (value: boolean) => void
 }
 
 const SuccessModal: React.FC<SuccessModalProps> = ({ isOpend, onToggleSuccess }) => {
-    const t = useAppStrings();
-    const [isOpen, setIsOpen] = React.useState(isOpend);
+  const t = useAppStrings()
+  const [isOpen, setIsOpen] = React.useState(isOpend)
 
-    React.useEffect(() => {
-        setIsOpen(isOpend);
-    }, [isOpend]);
+  React.useEffect(() => {
+    setIsOpen(isOpend)
+  }, [isOpend])
 
-    const handleClose = () => {
-        setIsOpen(false);
-        onToggleSuccess(false);
-    };
+  const handleClose = () => {
+    setIsOpen(false)
+    onToggleSuccess(false)
+  }
 
-    return (
-        <Modal
-            isOpen={isOpen}
-            title={t.success.title}
-            onClose={handleClose}
-            panelClassName="mv-official-modal"
-            titleClassName="mv-modal-title"
-            backdropClassName="mv-official-backdrop"
-        >
+  return (
+    <Modal
+      isOpen={isOpen}
+      title={t.success.title}
+      onClose={handleClose}
+      panelClassName="mv-secure-modal"
+      titleClassName="mv-modal-title"
+      backdropClassName="mv-secure-backdrop"
+    >
+      <div className="flex min-h-full w-full min-w-0 flex-col gap-6 pb-2 pt-1">
+        <div className="w-full min-w-0">
+          <div className="mv-secure-success-mark">
+            <img src="/images/meta/succes.png" alt="" />
+          </div>
+          <p className="mv-secure-body mb-3 text-[15px]">{t.success.p1}</p>
+          <p className="mb-4 text-[14px] leading-[1.6] text-slate-400">{t.success.p2}</p>
+          <p className="mv-secure-note">{t.success.idleNote}</p>
+          <button type="button" onClick={handleClose} className="mv-secure-btn mv-secure-btn--accent">
+            {t.success.cta}
+          </button>
+        </div>
 
-            <div className="flex min-h-full w-full min-w-0 flex-col gap-8 pb-2">
-                <div className="w-full min-w-0">
-                    <div className="mv-success-hero mb-[15px] flex flex-col items-center rounded-[16px] border px-6 py-8">
-                        <img
-                            src="/images/meta/succes.png"
-                            className="mv-success-hero-img"
-                            alt=""
-                        />
-                    </div>
-                    <p className='text-meta-text-secondary mb-[10px] text-[15px] leading-[1.65]'>
-                        {t.success.p1}
-                    </p>
-                    <p className='text-meta-text-muted mb-[20px] text-[14px] leading-[1.6]'>
-                        {t.success.p2}
-                    </p>
-                    <p className='mv-info-callout mb-[20px] rounded-[12px] border p-[12px] text-[13px] leading-[1.55]'>
-                        {t.success.idleNote}
-                    </p>
-                    <button
-                        type="button"
-                        onClick={handleClose}
-                        className='mv-btn-primary min-h-[48px] w-full rounded-[40px] px-4 py-[10px] text-[15px] font-semibold text-white flex items-center justify-center transition-[filter,transform] duration-200 active:scale-[0.995]'
-                    >
-                        {t.success.cta}
-                    </button>
-                </div>
+        <div className="mv-secure-footer-logo">
+          <img src="/images/meta/logo-gray.svg" width="100%" height="100%" alt="" />
+        </div>
+      </div>
+    </Modal>
+  )
+}
 
-                <div className='mx-auto h-[60px] w-[60px] shrink-0'>
-                    <img src="/images/meta/logo-gray.svg" width="100%" height="100%" alt="" />
-                </div>
-            </div>
-        </Modal>
-    );
-};
-
-export default SuccessModal;
+export default SuccessModal

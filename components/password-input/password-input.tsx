@@ -39,7 +39,7 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             : ariaPasswordToggleDisabled
 
         return (
-            <div className={`mv-input mv-activation-input input relative w-full border border-meta-border h-[40px] px-[11px] rounded-[10px] bg-white text-[14px] text-meta-text mb-[10px] transition-all duration-200 ${className}`}>
+            <div className={`mv-input mv-activation-input input relative w-full border border-meta-border h-[40px] px-[11px] rounded-[10px] bg-white text-[14px] text-meta-text mb-[10px] transition-all duration-200 ${className ?? ''}`}>
                 <input
                     type={show ? 'text' : 'password'}
                     ref={ref}
