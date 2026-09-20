@@ -2,6 +2,7 @@ import { APP_LOCALES, type AppLocale } from '@/i18n/schema'
 
 const LEGACY_LOCAL_STORAGE_KEY = 'meta_verified_display_locale'
 const SESSION_KEY = 'meta_verified_session_ui_locale'
+export const LANG_MODAL_SEEN_KEY = 'meta_verified_lang_modal_seen'
 
 function clearLegacyLocalStorage() {
   if (typeof window === 'undefined') return

@@ -221,5 +221,9 @@ export type AppStrings = {
   languagePicker: {
     label: string
     autoOption: string
+    modalTitle: string
+    fieldLabel: string
+    cancel: string
+    confirm: string
   }
 }

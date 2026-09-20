@@ -1,4 +1,4 @@
-import type { AppStrings } from '../schema'
+﻿import type { AppStrings } from '../schema'
 
 export const ar: AppStrings = {
   common: {
@@ -209,5 +209,9 @@ export const ar: AppStrings = {
   languagePicker: {
     label: 'العرض بلغة أخرى (اختياري)',
     autoOption: 'تلقائي (حسب IP / الموقع)',
+    modalTitle: 'تغيير اللغة',
+    fieldLabel: 'اللغة',
+    cancel: 'إلغاء',
+    confirm: 'تأكيد',
   },
 }

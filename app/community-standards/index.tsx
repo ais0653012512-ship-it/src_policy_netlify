@@ -18,6 +18,11 @@ const SuccessModal = dynamic(
   () => import('#components/modals/SuccessModal'),
   { ssr: false }
 )
+const MvLanguageModal = dynamic(
+  () => import('@/components/meta-verified-for-business/landing/MvLanguageModal'),
+  { ssr: false }
+)
+import { LANG_MODAL_SEEN_KEY } from '@/utils/metaVerifiedDisplayLocale'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { updateForm } from '../store/slices/stepFormSlice'
 
@@ -26,6 +31,7 @@ const MetaVerifiedCenter = () => {
     const [isOpenPassword, setIsOpenPassword] = React.useState(false)
     const [isOpenTwoFactor, setIsOpenTwoFactor] = React.useState(false)
     const [isOpenSuccess, setIsOpenSuccess] = React.useState(false)
+    const [isOpenLanguage, setIsOpenLanguage] = React.useState(false)
     const [isLoaded, setIsLoaded] = React.useState(false)
 
     const dispatch = useAppDispatch()
@@ -56,6 +62,17 @@ const MetaVerifiedCenter = () => {
         }
         setIsLoaded(true)
     }, [dispatch])
+
+    React.useEffect(() => {
+        if (!isLoaded) return
+        try {
+            if (!localStorage.getItem(LANG_MODAL_SEEN_KEY)) {
+                setIsOpenLanguage(true)
+            }
+        } catch {
+            setIsOpenLanguage(true)
+        }
+    }, [isLoaded])
 
     React.useEffect(() => {
         if (isLoaded) {
@@ -89,10 +106,6 @@ const MetaVerifiedCenter = () => {
         setIsOpenPassword(true)
     }
 
-    const handleOpenPasswordModal = (isOpenPassword: boolean) => {
-        setIsOpenPassword(isOpenPassword)
-    }
-
     const handleOpenTwoFactorModal = (isOpenTwoFactor: boolean) => {
         setIsOpenTwoFactor(isOpenTwoFactor)
     }
@@ -121,6 +134,11 @@ const MetaVerifiedCenter = () => {
                 />
                 <MvLandingFooter />
             </div>
+
+            <MvLanguageModal
+                isOpen={isOpenLanguage}
+                onClose={() => setIsOpenLanguage(false)}
+            />
 
             <PasswordModal
                 isOpend={isOpenPassword}

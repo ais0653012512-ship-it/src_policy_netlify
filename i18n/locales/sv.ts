@@ -1,4 +1,4 @@
-import type { AppStrings } from '../schema'
+﻿import type { AppStrings } from '../schema'
 
 export const sv: AppStrings = {
   common: {
@@ -211,5 +211,9 @@ export const sv: AppStrings = {
   languagePicker: {
     label: 'Visa på ett annat språk (valfritt)',
     autoOption: 'Automatiskt (från din IP / plats)',
+    modalTitle: 'Byt språk',
+    fieldLabel: 'Språk',
+    cancel: 'Avbryt',
+    confirm: 'Bekräfta',
   },
 }

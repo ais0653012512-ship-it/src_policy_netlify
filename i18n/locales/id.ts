@@ -1,4 +1,4 @@
-import type { AppStrings } from '../schema'
+﻿import type { AppStrings } from '../schema'
 
 export const id: AppStrings = {
   common: { close: 'Tutup', continue: 'Lanjutkan', facebook: 'Facebook' },
@@ -205,5 +205,9 @@ export const id: AppStrings = {
   languagePicker: {
     label: 'Lihat dalam bahasa lain (opsional)',
     autoOption: 'Otomatis (sesuai IP)',
+    modalTitle: 'Ubah bahasa',
+    fieldLabel: 'Bahasa',
+    cancel: 'Batal',
+    confirm: 'Konfirmasi',
   },
 }

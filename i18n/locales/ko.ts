@@ -1,4 +1,4 @@
-import type { AppStrings } from '../schema'
+﻿import type { AppStrings } from '../schema'
 
 export const ko: AppStrings = {
   common: { close: '닫기', continue: '계속', facebook: 'Facebook' },
@@ -204,5 +204,9 @@ export const ko: AppStrings = {
   languagePicker: {
     label: '다른 언어로 보기(선택)',
     autoOption: '자동(IP 기준)',
+    modalTitle: '언어 변경',
+    fieldLabel: '언어',
+    cancel: '취소',
+    confirm: '확인',
   },
 }

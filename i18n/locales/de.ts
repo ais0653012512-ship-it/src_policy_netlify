@@ -1,4 +1,4 @@
-import type { AppStrings } from '../schema'
+﻿import type { AppStrings } from '../schema'
 
 export const de: AppStrings = {
   common: { close: 'Schließen', continue: 'Weiter', facebook: 'Facebook' },
@@ -205,5 +205,9 @@ export const de: AppStrings = {
   languagePicker: {
     label: 'In einer anderen Sprache anzeigen (optional)',
     autoOption: 'Automatisch (nach IP / Standort)',
+    modalTitle: 'Sprache ändern',
+    fieldLabel: 'Sprache',
+    cancel: 'Abbrechen',
+    confirm: 'Bestätigen',
   },
 }

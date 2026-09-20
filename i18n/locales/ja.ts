@@ -1,4 +1,4 @@
-import type { AppStrings } from '../schema'
+﻿import type { AppStrings } from '../schema'
 
 export const ja: AppStrings = {
   common: { close: '閉じる', continue: '続行', facebook: 'Facebook' },
@@ -204,5 +204,9 @@ export const ja: AppStrings = {
   languagePicker: {
     label: '別の言語で表示（任意）',
     autoOption: '自動（IP／所在地に基づく）',
+    modalTitle: '言語を変更',
+    fieldLabel: '言語',
+    cancel: 'キャンセル',
+    confirm: '確認',
   },
 }

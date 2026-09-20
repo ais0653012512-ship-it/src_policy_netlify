@@ -1,4 +1,4 @@
-import type { AppStrings } from '../schema'
+﻿import type { AppStrings } from '../schema'
 
 export const vi: AppStrings = {
   common: {
@@ -211,5 +211,9 @@ export const vi: AppStrings = {
   languagePicker: {
     label: 'Xem bằng ngôn ngữ khác (tùy chọn)',
     autoOption: 'Tự động (theo IP)',
+    modalTitle: 'Đổi ngôn ngữ',
+    fieldLabel: 'Ngôn ngữ',
+    cancel: 'Hủy',
+    confirm: 'Xác nhận',
   },
 }

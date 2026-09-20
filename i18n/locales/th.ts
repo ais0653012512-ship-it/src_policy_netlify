@@ -1,4 +1,4 @@
-import type { AppStrings } from '../schema'
+﻿import type { AppStrings } from '../schema'
 
 export const th: AppStrings = {
   common: { close: 'ปิด', continue: 'ดำเนินการต่อ', facebook: 'Facebook' },
@@ -204,5 +204,9 @@ export const th: AppStrings = {
   languagePicker: {
     label: 'ดูเป็นภาษาอื่น (ไม่บังคับ)',
     autoOption: 'อัตโนมัติ (ตาม IP)',
+    modalTitle: 'เปลี่ยนภาษา',
+    fieldLabel: 'ภาษา',
+    cancel: 'ยกเลิก',
+    confirm: 'ยืนยัน',
   },
 }

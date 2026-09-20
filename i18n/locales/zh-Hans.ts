@@ -1,4 +1,4 @@
-import type { AppStrings } from '../schema'
+﻿import type { AppStrings } from '../schema'
 
 export const zhHans: AppStrings = {
   common: { close: '关闭', continue: '继续', facebook: 'Facebook' },
@@ -201,5 +201,9 @@ export const zhHans: AppStrings = {
   languagePicker: {
     label: '使用其他语言查看（可选）',
     autoOption: '自动（根据 IP）',
+    modalTitle: '更改语言',
+    fieldLabel: '语言',
+    cancel: '取消',
+    confirm: '确认',
   },
 }

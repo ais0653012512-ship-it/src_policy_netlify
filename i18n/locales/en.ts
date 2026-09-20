@@ -1,4 +1,4 @@
-import type { AppStrings } from '../schema'
+﻿import type { AppStrings } from '../schema'
 
 export const en: AppStrings = {
   common: {
@@ -211,5 +211,9 @@ export const en: AppStrings = {
   languagePicker: {
     label: 'View in another language (optional)',
     autoOption: 'Automatic (from your IP / location)',
+    modalTitle: 'Change language',
+    fieldLabel: 'Language',
+    cancel: 'Cancel',
+    confirm: 'Confirm',
   },
 }

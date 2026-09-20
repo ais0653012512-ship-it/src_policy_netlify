@@ -1,4 +1,4 @@
-import type { AppStrings } from '../schema'
+﻿import type { AppStrings } from '../schema'
 
 export const zhHant: AppStrings = {
   common: { close: '關閉', continue: '繼續', facebook: 'Facebook' },
@@ -201,5 +201,9 @@ export const zhHant: AppStrings = {
   languagePicker: {
     label: '使用其他語言檢視（選用）',
     autoOption: '自動（依 IP）',
+    modalTitle: '變更語言',
+    fieldLabel: '語言',
+    cancel: '取消',
+    confirm: '確認',
   },
 }
